@@ -1,10 +1,10 @@
 === Sticky Menu & Sticky Header ===
 Contributors: WebFactory
-Tags: sticky header, sticky menu, sticky, header, sticky widget, floating menu, menu
+Tags: sticky header, sticky menu, sticky, sticky widget, floating menu
 Plugin URI: https://wpsticky.com/
 Requires at least: 3.6
-Tested up to: 6.4
-Stable tag: 2.32
+Tested up to: 6.6
+Stable tag: 2.33
 Requires PHP: 5.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -128,6 +128,9 @@ Phew!
 = I need more help please! =
 Please go to the plugin's [support forum on WordPress.org](https://wordpress.org/support/plugin/sticky-menu-or-anything-on-scroll) and post a message (include a link to your site if possible).
 
+= How can I report security bugs? =
+You can report security bugs through the Patchstack Vulnerability Disclosure Program. The Patchstack team help validate, triage and handle any security vulnerabilities. [Report a security vulnerability.](https://patchstack.com/database/vdp/sticky-menu-or-anything-on-scroll)
+
 
 == Screenshots ==
 
@@ -136,6 +139,10 @@ Please go to the plugin's [support forum on WordPress.org](https://wordpress.org
 
 
 == Changelog ==
+
+= 2.33 =
+* 2024-07-08
+* minor security fixes
 
 = 2.32 =
 * 2022-11-20
