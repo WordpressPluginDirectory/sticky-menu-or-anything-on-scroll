@@ -3,8 +3,8 @@ Contributors: WebFactory
 Tags: sticky header, sticky menu, sticky, sticky widget, floating menu
 Plugin URI: https://wpsticky.com/
 Requires at least: 3.6
-Tested up to: 6.8
-Stable tag: 2.34
+Tested up to: 7.0
+Stable tag: 2.36
 Requires PHP: 5.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -85,48 +85,11 @@ The following code would give your element a red background only when it's not s
 = Once the element becomes sticky, there's a brief moment where you see it twice. =
 If you're using the plugin in Legacy Mode (see below), this happens when the sticky element (or any of its contents) has a CSS transition applied to it. Because the original element becomes invisible (and a cloned copy of it becomes visible), the visible-to-invisible status change will take place with a transition (ie. not instantly). Either remove any of the transitions the element has, or try disabling the Legacy Mode.
 
-= My menu sticks, but it doesn't open on the Responsive theme when it's sticky. =
-This was a bug in pre-2.0 versions, and an incompatibility with the theme. It has been fixed in 2.0, but in Legacy Mode, this bug is still present. If you need to enable Legacy Mode for some reason, it would be better to turn off stickiness for the mobile menu (set "Do not stick element when screen smaller than:" to 651 pixels).
-
-= I have another plugin called Easy Smooth Scroll Links, but once my menu becomes sticky, that one doesn't work anymore. =
-This was a bug in pre-2.0 versions, and an incompatibility with the plugin. It has been fixed in 2.0, but in Legacy Mode, this bug is still present. If you need Legacy Mode enabled for some reason, there is no fix for this bug, however there is an alternative workaround. According to reports from users who had this issue, a plugin called Page Scroll To ID is a worthy alternative to Easy Smooth Scroll Links and works with the Sticky Anything plugin in Legacy Mode.
-
 = Still doesn't work. What could be wrong? =
 Check the "Debug Mode" checkbox in the plugin's settings. Reload the page and you may see errors in your browser's console window. If you've used a selector that doesn't exist, OR there are more of them on the page, you will be notified of that in the console.
 
 = Is it possible to have multiple sticky elements? =
 The current version only allows one sticky element, but this functionality will be implemented in the next major version. No expected release date, though.
-
-= What is Legacy Mode? Should I use it? =
-In version 2.0 of the plugin, a new/better method for making elements sticky was introduced. Before this, a sticky element would essentially be a cloned copy of the original element. Now, the element itself becomes sticky and doesn't use copying and cloning anymore, which solves a lot of issues.
-
-So, should you use it or not? Well, if you upgraded this plugin from an earlier version, Legacy Mode will be turned ON by default, because chances are that the old method worked perfectly fine for your site. If that's the case, there is not really a need to use the new method and you can just continue using the old, classic method. If it ain't broke, don't fix it, right?
-
-Having said that, it's worth checking if your element works just as well with Legacy Mode turned OFF, since this is the "better" method. Just give it a quick try. If it doesn't work, you can always just go back and enable it again.
-
-NOTE: new installs of the plugin will have the Legacy Mode turned off by default. Only UPGRADES from 1.4 (or before) should have it turned on by default.
-
-= What is this Dynamic Mode thing exactly? =
-This mode is only available in Legacy Mode, and to properly explain this, we'll need to go a little deeper in the plugin's functionality. So bear with me...
-
-In Legacy Mode, when an element becomes sticky at the top of the page (and keeps its place regardless of the scrolling), it's actually not the element itself you see, but a cloned copy of it, while the actual original element is out of view and invisible.
-
-The original element always stays where it originally is on the page, while the cloned element is always at the top of the browser viewport screen. However, you will never see them both at the same time; depending on your scroll position, it always just shows either one or the other.
-
-In the original plugin version, the clone would be created right the moment when you load the page (but not visible right away). Then when you would scroll down, it would become visible (and stick at the top), while the original element would disappear from view.
-
-However, some themes use JavaScript to dynamically create elements (menus, mostly) for mobile sites. With this method, a menu doesn't exist in the HTML source code when you load the page, but is created some time after the page is fully loaded -- in many cases, these menus would just be generated ONLY when the screen is more (or less) than a certain specific width. With the original version of the plugin, the problem would be that the original element (that you want to make sticky) may not have been fully created upon page load, so the clone would also not be fully functional.
-
-Enter Dynamic Mode. Now, a clone of the element is not created on page load -- instead, it's only created when the user scrolls and hits the "sticky" point. This ensures that the cloned element is an actual 1-on-1 copy of what the original element consists of at that specific point in time (and not at the "page is loaded" point, which may be different if the element was altered since).
-
-Why don't we use Dynamic Mode all the time then? This has to do with the fact that other plugins initialize themselves on page load and may need the full markup (including the cloned element) at that point. In Dynamic Mode, there is no clone available yet on page load, so that could cause an issue if that other plugin is looking for an element that doesn't exist yet.
-
-(This may all sound terribly confusing. And it is! So, much work was done to fix this nonsense: since v2.0 of the plugin, a whole different method is being used to make elements sticky, and Dynamic Mode is not even an issue anymore.)
-
-Phew!
-
-= I need more help please! =
-Please go to the plugin's [support forum on WordPress.org](https://wordpress.org/support/plugin/sticky-menu-or-anything-on-scroll) and post a message (include a link to your site if possible).
 
 = How can I report security bugs? =
 You can report security bugs through the Patchstack Vulnerability Disclosure Program. The Patchstack team help validate, triage and handle any security vulnerabilities. [Report a security vulnerability.](https://patchstack.com/database/vdp/sticky-menu-or-anything-on-scroll)
@@ -139,6 +102,14 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 
 == Changelog ==
+= 2.36 =
+* 2026-07-25
+* minor code fixes
+
+= 2.35 =
+* 2026-04-15
+* minor code fixes
+
 = 2.34 =
 * 2025-08-10
 * minor code fixes

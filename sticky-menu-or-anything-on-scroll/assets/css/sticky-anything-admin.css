@@ -1,3 +1,8 @@
+/**
+ * Sticky Menu or Anything
+ * (c) WebFactory 2026, https://wpsticky.com/
+ */
+
 .hide {
   display: none;
 }
@@ -302,7 +307,7 @@
   background-color: #b93c24;
   color: #fff;
   font-weight: 700;
-  padding: 5px 10px;
+  padding: 5px 5px;
 }
 
 .settings_page_stickyanythingmenu a.button-buy del {
@@ -357,6 +362,19 @@
 .sticky-pro-dialog .footer {
   padding: 15px 70px;
   background-color: #ffde66;
+}
+
+.sticky-pro-dialog .upsell-footer-2 {
+  padding: 10px;
+  text-align: center;
+  background-color: #b93c24;
+  color: white;
+  margin: 0;
+}
+
+.sticky-pro-dialog .upsell-footer-2 a {
+  color: white;
+  padding: 0;
 }
 
 .sticky-pro-dialog {
@@ -421,7 +439,8 @@ s#sticky-table tr td:nth-child(2) {
   float: right;
   width: 25%;
   background: #ffde66;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+  box-shadow: none;
+  border: 2px solid black;
   padding: 25px;
   margin: 20px 0 0 0;
   box-sizing: border-box;

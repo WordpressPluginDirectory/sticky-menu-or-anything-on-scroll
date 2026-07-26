@@ -5,14 +5,14 @@ Plugin URI: https://wpsticky.com/
 Description: Pick any element on the page, and it will stick when it reaches the top of the page when you scroll down. Handy for navigation menus, but can be used for any element on the page.
 Author: WebFactory Ltd
 Author URI: https://www.webfactoryltd.com/
-Version: 2.34
+Version: 2.36
 Requires at least: 3.6
-Tested up to: 6.8
+Tested up to: 7.0
 Requires PHP: 5.2
 License: GPLv2 or later
 Text Domain: sticky-menu-or-anything-on-scroll
 
-  Copyright 2020 - 2025  WebFactory Ltd  (email: support@webfactoryltd.com)
+  Copyright 2020 - 2026  WebFactory Ltd  (email: support@webfactoryltd.com)
   Copyright 2019 - 2020  @senff
 
   This program is free software; you can redistribute it and/or modify
@@ -536,7 +536,7 @@ if (!function_exists('sticky_anything_config_page')) {
 <a title="WP Sticky PRO" href="#" class="open-sticky-pro-dialog" data-pro-feature="sidebar">
 <div class="inner center logo">
   <img style="max-height: 100px;" src="<?php echo esc_url($plugin_url); ?>assets/img/wp-sticky-pro.png" alt="WP Sticky PRO" title="WP Sticky PRO"><br>
-  <h3>WP Sticky PRO is here!<br>Grab the <u>50% OFF</u> launch DISCOUNT 🚀</h3>
+  <h3>WP Sticky PRO is here!<br>Get it for <u>ONLY $9.99</u> 🚀</h3>
 </div></a>
 </div>
 
@@ -683,7 +683,6 @@ if (!function_exists('sticky_anything_styles')) {
 			return;
 		}
 
-    $sticky_anything_options = get_option( 'sticky_anything_options' );
 
 		wp_register_script('stickyAnythingAdminScript', plugins_url('/assets/js/sticky-anything-admin.js', __FILE__), array( 'jquery' ), '2.1.1');
 		wp_enqueue_script('stickyAnythingAdminScript');
@@ -696,15 +695,6 @@ if (!function_exists('sticky_anything_styles')) {
 
     wp_enqueue_style('wp-color-picker');
     wp_enqueue_script('wp-color-picker');
-
-    $js_vars = array(
-      'auto_open_pro_dialog' => empty($sticky_anything_options['sa_dismiss_upsell_auto_open']),
-    );
-
-    wp_localize_script('jquery-ui-dialog', 'wpsticky', $js_vars);
-
-    $sticky_anything_options['sa_dismiss_upsell_auto_open'] = true;
-    update_option('sticky_anything_options', $sticky_anything_options);
 	}
 }
 
@@ -719,7 +709,7 @@ function sticky_anything_admin_footer() {
 
   $plugin_url = plugin_dir_url(__FILE__);
 
-  $out .= '<div class="center logo"><b><a href="https://wpsticky.com/?ref=sticky-free-popup" target="_blank">WP Sticky PRO</a> is here!<br>Grab the <i>50% OFF</i> launch DISCOUNT 🚀</b></div>';
+  $out .= '<div class="center logo"><b><a href="https://wpsticky.com/?ref=sticky-free-popup" target="_blank">WP Sticky PRO</a> is here!<br>Get it for <i>ONLY $9.99</i></b></div>';
 
   $out .= '<table id="sticky-table">';
   $out .= '<tr>';
@@ -789,12 +779,14 @@ function sticky_anything_admin_footer() {
   $out .= '</tr>';
 
   $out .= '<tr>';
-  $out .= '<td><span>20% discount</span><a class="button button-buy" data-href-org="https://wpsticky.com/buy/?product=single-launch&ref=pricing-table" href="https://wpsticky.com/buy/?product=single-launch&ref=pricing-table" target="_blank">BUY NOW <del>$49</del> $39</a><br>-or-<br><a class="button button-buy" data-href-org="https://wpsticky.com/buy/?product=single-monthly&ref=pricing-table" href="https://wpsticky.com/buy/?product=single-monthly&ref=pricing-table" target="_blank">ONLY $5.99 <small>/month</small></a></td>';
-  $out .= '<td><span>40% discount</span><a class="button button-buy" data-href-org="https://wpsticky.com/buy/?product=team-launch&ref=pricing-table" href="https://wpsticky.com/buy/?product=team-launch&ref=pricing-table" target="_blank">BUY NOW <del>$79</del> $49</a></td>';
-  $out .= '<td><span>$100 discount</span><a class="button button-buy" data-href-org="https://wpsticky.com/buy/?product=agency-launch&ref=pricing-table" href="https://wpsticky.com/buy/?product=agency-launch&ref=pricing-table" target="_blank">BUY NOW <del>$199</del> $99</a></td>';
+  $out .= '<td><a class="button button-buy" data-href-org="https://wpsticky.com/buy/?product=single-launch&ref=pricing-table" href="https://wpsticky.com/buy/?product=single-launch&ref=pricing-table" target="_blank">BUY NOW <del>$49</del> $39</a></td>';
+  $out .= '<td><a class="button button-buy" data-href-org="https://wpsticky.com/buy/?product=team-launch&ref=pricing-table" href="https://wpsticky.com/buy/?product=team-launch&ref=pricing-table" target="_blank">BUY NOW <del>$79</del> $49</a></td>';
+  $out .= '<td><a class="button button-buy" data-href-org="https://wpsticky.com/buy/?product=agency-launch&ref=pricing-table" href="https://wpsticky.com/buy/?product=agency-launch&ref=pricing-table" target="_blank">BUY NOW <del>$199</del> $99</a></td>';
   $out .= '</tr>';
 
   $out .= '</table>';
+
+  $out .= '<div class="upsell-footer-2 center">Need the plugin only for a <b>short period of time</b>? <a class="button-buy" target="_blank" data-href-org="https://wpsticky.com/buy/?product=single-monthly&ref=pricing-table" href="https://wpsticky.com/buy/?product=single-monthly&ref=pricing-table"><b>Get it for ONLY $9.99</b><small> /month</small></a> &amp; cancel any time!</div>';
 
   $out .= '<div class="center footer"><b>100% No-Risk Money Back Guarantee!</b> If you don\'t like the plugin over the next 7 days, we\'ll refund 100% of your money. No questions asked! Payments are processed by our merchant of records - <a href="https://paddle.com/" target="_blank">Paddle</a>.</div></div>';
 

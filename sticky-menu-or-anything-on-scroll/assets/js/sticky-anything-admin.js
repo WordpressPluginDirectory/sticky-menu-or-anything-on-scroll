@@ -1,6 +1,6 @@
 /**
  * Sticky Menu or Anything
- * (c) WebFactory 2022, https://wpsticky.com/
+ * (c) WebFactory 2026, https://wpsticky.com/
  */
 
 jQuery(function ($) {
@@ -98,7 +98,16 @@ jQuery(function ($) {
     closeOnEscape: true,
   });
 
-  if (wpsticky.auto_open_pro_dialog) {
+  // show upsell popup every 3 months
+  if (window.localStorage.getItem('sticky_upsell_timestamp') === null ||
+      (new Date().getTime() / 1000 - window.localStorage.getItem('sticky_upsell_timestamp')) > (86400 * 90)) {
+    window.localStorage.setItem('sticky_upsell_timestamp', Math.round(new Date().getTime() / 1000));
+
+    $('.button-buy').each(function(ind, el) {
+      tmp = $(el).data('href-org');
+      tmp = tmp.replace('pricing-table', 'welcome');
+      $(el).attr('href', tmp);
+    });
     $('#sticky-pro-dialog').dialog('open');
   }
 });
